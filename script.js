@@ -1,24 +1,73 @@
-let cart = [];
-let total = 0;
+/* basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-function addToCart(productName, price) {
-  cart.push({ name: productName, price: price });
-  total += price;
-  updateCartDisplay();
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
 }
 
-function updateCartDisplay() {
-  const cartItems = document.getElementById('cart-items');
-  const cartCount = document.getElementById('cart-count');
-  const cartTotal = document.getElementById('cart-total');
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  cartItems.innerHTML = '';
-  cart.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-    cartItems.appendChild(li);
-  });
+nav a {
+  color: #ccc;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+nav a.active, nav a:hover { color: #fff; }
 
-  cartCount.textContent = cart.length;
-  cartTotal.textContent = total.toFixed(2);
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.products, .product-detail, .cart-section, .checkout {
+  padding: 1rem;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product, .product-detail {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 300px;
+}
+
+.product img, .product-detail img {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cart-section ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.cart-section li {
+  margin-bottom: 0.5rem;
+}
+
+.checkout form label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.checkout form input, .checkout form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
 }
